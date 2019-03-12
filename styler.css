@@ -3,11 +3,23 @@
     display: block;
     float: left;
     height: 100%;
+    width: 15rem;
 }
 
 .nav-item {
-    border-bottom: 4px solid white;
+    border-bottom: 4px solid rgb(235, 255, 52);
     margin: none;
-    padding-left: 0;
-    padding-right: 0;
+    list-style: none !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    color: white;
+    font-weight: bold;
+}
+
+#main-doc {
+    margin-left: 15rem;
+}
+
+.main {
+    width: 80vw;
 }
