@@ -12,30 +12,33 @@
 	</head>
 
 	<body>
-		<nav class="navbar position-fixed" id="navbar">
+		<nav class="nav flex-column navbar position-fixed" id="navbar">
 			<center><header class="navbar-brand">JS_Basics</header></center>
 			<div class="navbar-nav" id="nav">
-				<a class="nav-item py-3 nav-link" href="#Introduction">Item 1</a>
-				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
-				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
-				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
-				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
-				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#Introduction">Introduction</a>
+				<a class="nav-item py-3 nav-link" href="#Object_basics">Object basics</a>
+				<a class="nav-item py-3 nav-link" href="#Dot_notation">Dot notation</a>
+				<a class="nav-item py-3 nav-link" href="#Bracket_notation">Bracket notation</a>
+				<a class="nav-item py-3 nav-link" href="#Setting_object_members">Setting object members</a>
+				<a class="nav-item py-3 nav-link" href="#What_is_this">What is this</a>
+				<a class="nav-item py-3 nav-link" href="#You_ve_been_using_objects_all_along">You've been using objects all along</a>
+        		<a class="nav-item py-3 nav-link" href="#Where_next">Where next</a>
 			</div>
 		</nav>
 		<main class="main container-fluid" id="main-doc">
 			<section class="main-section" id="Introduction">
 				<header>Introduction</header>
-				<p>In JavaScript, most things are objects, from core JavaScript features like strings and arrays to the browser APIs built on top of JavaScript. You can even create your own objects to encapsulate related functions and variables into efficient
+				<p class="text-justify">In JavaScript, most things are objects, from core JavaScript features like strings and arrays to the browser APIs built on top of JavaScript. You can even create your own objects to encapsulate related functions and variables into efficient
 					packages, and act as handy data containers. The object-based nature of JavaScript is important to understand if you want to go further with your knowledge of the language, therefore we've provided this module to help you. Here we teach
 					object theory and syntax in detail, then look at how to create your own objects.</p>
 			</section>
+
 			<section class="main-section" id="Object_basics">
 				<header>Object basics</header>
-            	<p>An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.). 
+            	<p class="text-justify">An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.). 
 					An object like this is referred to as an <strong>object literal</strong> — we've literally written out the object contents as we've come to create it.</p>
 				
-			<code><pre>
+			<pre><code>
 			var person = {
 					name: ['Bob', 'Smith'],
 					age: 32,
@@ -48,14 +51,138 @@
 					greeting: function() {
 					alert('Hi! I\'m ' + this.name[0] + '.');
 					}
-				    };</pre></code>
+				    };</code></pre>
 			
-					<p>The value of an object member can be pretty much anything — in our person object we've got a string, a number, two arrays, and two functions. The first four items are data items, and are referred to as the object's <strong>properties.</strong>                The last two items are functions that allow the object to do something with that data, and are referred to as the object's <strong>methods.</strong></p>
+					<p class="text-justify">The value of an object member can be pretty much anything — in our person object we've got a string, a number, two arrays, and two functions. The first four items are data items, and are referred to as the object's <strong>properties.</strong>                The last two items are functions that allow the object to do something with that data, and are referred to as the object's <strong>methods.</strong></p>
 			</section>
-			<section class="main-section" id="">
-					<header>333</header>
+
+			<section class="main-section" id="Dot_notation">
+					<header>Dot notation</header>
+					<p class="text-justify">The object name (person) acts as the <strong>namespace</strong> — it must be entered first to access anything <strong>encapsulated</strong> inside the object. Next you write a dot, then the item you want to access — this can be the name of
+						a simple property, an item of an array property, or a call to one of the object's methods, for example:</p>
+
+				<pre><code>
+					person.age
+					person.interests[1]
+					person.bio()
+				</code></pre>
+								
+				<p class="text-justify">It is even possible to make the value of an object member another object thus creating a <strong>sub-namespace.</strong></p>
+				
+				<pre><code>
+				var person = {
+						name : {
+							first: 'Bob',
+							last: 'Smith'
+						},
+					}
+					console.log(person.name.first);
+					console.log(person.name.last);</code></pre>
 			</section>
+
+			<section class="main-section" id="Bracket_notation">
+					<header>Bracket notation</header>
+					<p class="text-justify">There is another way to access object properties — using bracket notation. Instead of using these:</p>
+					
+					<pre><code>
+					person.age
+					person.name.first</code></pre>	
+					
+					<p class="text-justify">You can use</p>
+										
+					<pre><code>
+					person['age']
+					person['name']['first']</code></pre>
+										
+					<p class="text-justify">This looks very similar to how you access the items in an array, and it is basically the same thing — instead of using an index number to select an item, you are using the name associated with each member's value. It is no wonder that objects
+						are sometimes called associative arrays — they map strings to values in the same way that arrays map numbers to values.</p>
+			</section>
+
+			<section class="main-section" id="Setting_object_members">
+					<header>Setting bject members</header>
+					<p class="text-justify">So far we've only looked at retrieving (or <strong>getting</strong>) object members — you 
+						can also <strong>set</strong> (update) the value of object members by simply declaring the member you want to 
+						set (using dot or bracket notation), like this:</p>
+					
+					<pre><code>
+					person.age = 45;
+					person['name']['last'] = 'Cratchit';</code></pre>
+										
+					<p>Setting members doesn't just stop at updating the values of existing properties and 
+						methods; you can also create completely new members.</p>
+										
+					<pre><code>
+					person['eyes'] = 'hazel';
+					person.farewell = function() { alert("Bye everybody!"); }</code></pre>
+
+					<p>One useful aspect of bracket notation is that it can be used to set not only member values dynamically, but member names too. Let's say we wanted users to be able to store custom value types in their people data, by typing the member name
+						and value into two text inputs? We could get those values like this:</p>
+										
+					<pre><code>
+					var myDataName = nameInput.value;
+					var myDataValue = nameValue.value;
+					person[myDataName] = myDataValue;</code></pre>
+			</section>
+
+			<section class="main-section" id="What_is_this">
+					<header>What is this</header>
+					<p>The <code>this</code> keyword refers to the current object the code is being written inside — so in this case this is equivalent to person. So why not just write person instead? When we start creating constructors, etc., this is very useful
+						— it will always ensure that the correct values are used when a member's context changes (e.g. two different person object instances may have different names, but will want to use their own name when saying their greeting).</p>
+					<pre><code>var person1 = {
+				name: 'Chris',
+				greeting: function() {
+				  alert('Hi! I\'m ' + this.name + '.');
+				}
+			  }
+			  
+			  var person2 = {
+				name: 'Brian',
+				greeting: function() {
+				  alert('Hi! I\'m ' + this.name + '.');
+				}
+			  }</code></pre>
+					<p>In this case, person1.greeting() will output "Hi! I'm Chris."; person2.greeting() on the other hand will output "Hi! I'm Brian.", even though the method's code is exactly the same in each case. As we said earlier, this is equal to the object
+						the code is inside — this isn't hugely useful when you are writing out object literals by hand, but it really comes into its own when you are dynamically generating objects (for example using constructors). It will all become clearer later
+						on.
+					</p>
+				</section>
+		
+				<section class="main-section" id="You_ve_been_using_objects_all_along">
+					<header>You ve been using objects all along</header>
+					<p>Every time you are using a built-in browser API or JavaScript object, you are using objects, because such features are built using exactly the same kind of object structures that we've been looking at here, albeit more complex ones than our
+						own basic custom examples. So when you use string methods like:</p>
+					<pre><code>myString.split(',');</code></pre>
+					<p>You are using a method available on an instance of the String class. Every time you create a string in your code, that string is automatically created as an instance of String, and therefore has several common methods/properties available
+						on it.</p>
+				</section>
+		
+				<section class="main-section" id="Where_next">
+					<header>Where next</header>
+					<ul>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">Object-oriented JavaScript for beginners</a></li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">Object prototypes</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">Inheritance in JavaScript</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">Working with JSON</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice">Object building practice</a>
+						</li>
+					</ul>
+				</section>
+
 		</main>
+
+		<footer>
+			<address>
+				Materials taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">MDN</a>.
+			</address>
+		</footer>
+
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
