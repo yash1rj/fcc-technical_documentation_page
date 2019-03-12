@@ -13,22 +13,44 @@
 
 	<body>
 		<nav class="navbar position-fixed" id="navbar">
-			<header class="navbar-brand">JS_Basics</header>
+			<center><header class="navbar-brand">JS_Basics</header></center>
 			<div class="navbar-nav" id="nav">
-				<a class="nav-item nav-link active" href="#">Item 1</a>
-				<a class="nav-item nav-link" href="#">Item 2</a>
-				<a class="nav-item nav-link" href="#">Item 2</a>
-				<a class="nav-item nav-link" href="#">Item 2</a>
-				<a class="nav-item nav-link" href="#">Item 2</a>
-				<a class="nav-item nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#Introduction">Item 1</a>
+				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
+				<a class="nav-item py-3 nav-link" href="#">Item 2</a>
 			</div>
 		</nav>
-		<main class="main" id="main-doc">
-			<section class="main-section" id="">
-				<header>111</header>
+		<main class="main container-fluid" id="main-doc">
+			<section class="main-section" id="Introduction">
+				<header>Introduction</header>
+				<p>In JavaScript, most things are objects, from core JavaScript features like strings and arrays to the browser APIs built on top of JavaScript. You can even create your own objects to encapsulate related functions and variables into efficient
+					packages, and act as handy data containers. The object-based nature of JavaScript is important to understand if you want to go further with your knowledge of the language, therefore we've provided this module to help you. Here we teach
+					object theory and syntax in detail, then look at how to create your own objects.</p>
 			</section>
-			<section class="main-section" id="">
-					<header>222</header>
+			<section class="main-section" id="Object_basics">
+				<header>Object basics</header>
+            	<p>An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.). 
+					An object like this is referred to as an <strong>object literal</strong> — we've literally written out the object contents as we've come to create it.</p>
+				
+			<code><pre>
+			var person = {
+					name: ['Bob', 'Smith'],
+					age: 32,
+					gender: 'male',
+					interests: ['music', 'skiing'],
+					bio: function() {
+					alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. 
+						He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+					},
+					greeting: function() {
+					alert('Hi! I\'m ' + this.name[0] + '.');
+					}
+				    };</pre></code>
+			
+					<p>The value of an object member can be pretty much anything — in our person object we've got a string, a number, two arrays, and two functions. The first four items are data items, and are referred to as the object's <strong>properties.</strong>                The last two items are functions that allow the object to do something with that data, and are referred to as the object's <strong>methods.</strong></p>
 			</section>
 			<section class="main-section" id="">
 					<header>333</header>
