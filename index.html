@@ -11,30 +11,33 @@
 		<link rel="stylesheet" href="styler.css">
 	</head>
 
-	<body>
+	<body data-spy="scroll" data-target="#navbar">
 		<nav class="nav flex-column navbar position-fixed" id="navbar">
 			<center><header class="navbar-brand">JS_Basics</header></center>
+			<hr class="my-4">
 			<div class="navbar-nav" id="nav">
-				<a class="nav-item py-3 nav-link" href="#Introduction">Introduction</a>
+				<a class="nav-item py-3 nav-link" href="#Introduction" style="border-top: 4px solid rgb(235, 255, 52);">Introduction</a>
 				<a class="nav-item py-3 nav-link" href="#Object_basics">Object basics</a>
 				<a class="nav-item py-3 nav-link" href="#Dot_notation">Dot notation</a>
 				<a class="nav-item py-3 nav-link" href="#Bracket_notation">Bracket notation</a>
 				<a class="nav-item py-3 nav-link" href="#Setting_object_members">Setting object members</a>
 				<a class="nav-item py-3 nav-link" href="#What_is_this">What is this</a>
-				<a class="nav-item py-3 nav-link" href="#You_ve_been_using_objects_all_along">You've been using objects all along</a>
+				<a class="nav-item py-3 nav-link" href="#You_have_been_using_objects_all_along">You have been using objects all along</a>
         		<a class="nav-item py-3 nav-link" href="#Where_next">Where next</a>
 			</div>
 		</nav>
 		<main class="main container-fluid" id="main-doc">
 			<section class="main-section" id="Introduction">
-				<header>Introduction</header>
+				<header class="display-4">Introduction</header>
+				<br><br>
 				<p class="text-justify">In JavaScript, most things are objects, from core JavaScript features like strings and arrays to the browser APIs built on top of JavaScript. You can even create your own objects to encapsulate related functions and variables into efficient
 					packages, and act as handy data containers. The object-based nature of JavaScript is important to understand if you want to go further with your knowledge of the language, therefore we've provided this module to help you. Here we teach
 					object theory and syntax in detail, then look at how to create your own objects.</p>
 			</section>
-
+			<hr class="my-4">
 			<section class="main-section" id="Object_basics">
-				<header>Object basics</header>
+				<header class="display-4">Object basics</header>
+				<br><br>
             	<p class="text-justify">An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.). 
 					An object like this is referred to as an <strong>object literal</strong> — we've literally written out the object contents as we've come to create it.</p>
 				
@@ -55,9 +58,10 @@
 			
 					<p class="text-justify">The value of an object member can be pretty much anything — in our person object we've got a string, a number, two arrays, and two functions. The first four items are data items, and are referred to as the object's <strong>properties.</strong>                The last two items are functions that allow the object to do something with that data, and are referred to as the object's <strong>methods.</strong></p>
 			</section>
-
+			<hr class="my-4">
 			<section class="main-section" id="Dot_notation">
-					<header>Dot notation</header>
+					<header class="display-4">Dot notation</header>
+					<br><br>
 					<p class="text-justify">The object name (person) acts as the <strong>namespace</strong> — it must be entered first to access anything <strong>encapsulated</strong> inside the object. Next you write a dot, then the item you want to access — this can be the name of
 						a simple property, an item of an array property, or a call to one of the object's methods, for example:</p>
 
@@ -79,9 +83,10 @@
 					console.log(person.name.first);
 					console.log(person.name.last);</code></pre>
 			</section>
-
+			<hr class="my-4">
 			<section class="main-section" id="Bracket_notation">
-					<header>Bracket notation</header>
+					<header class="display-4">Bracket notation</header>
+					<br><br>
 					<p class="text-justify">There is another way to access object properties — using bracket notation. Instead of using these:</p>
 					
 					<pre><code>
@@ -97,25 +102,24 @@
 					<p class="text-justify">This looks very similar to how you access the items in an array, and it is basically the same thing — instead of using an index number to select an item, you are using the name associated with each member's value. It is no wonder that objects
 						are sometimes called associative arrays — they map strings to values in the same way that arrays map numbers to values.</p>
 			</section>
-
+			<hr class="my-4">
 			<section class="main-section" id="Setting_object_members">
-					<header>Setting bject members</header>
-					<p class="text-justify">So far we've only looked at retrieving (or <strong>getting</strong>) object members — you 
-						can also <strong>set</strong> (update) the value of object members by simply declaring the member you want to 
-						set (using dot or bracket notation), like this:</p>
+					<header class="display-4">Setting object members</header>
+					<br><br>
+					<p class="text-justify">So far we've only looked at retrieving (or <strong>getting</strong>) object members — you can also <strong>set</strong> (update) the value of object members by simply declaring the member you want to set (using dot or bracket notation), like this:</p>
 					
 					<pre><code>
 					person.age = 45;
 					person['name']['last'] = 'Cratchit';</code></pre>
 										
-					<p>Setting members doesn't just stop at updating the values of existing properties and 
+					<p class="text-justify">Setting members doesn't just stop at updating the values of existing properties and 
 						methods; you can also create completely new members.</p>
 										
 					<pre><code>
 					person['eyes'] = 'hazel';
 					person.farewell = function() { alert("Bye everybody!"); }</code></pre>
 
-					<p>One useful aspect of bracket notation is that it can be used to set not only member values dynamically, but member names too. Let's say we wanted users to be able to store custom value types in their people data, by typing the member name
+					<p class="text-justify">One useful aspect of bracket notation is that it can be used to set not only member values dynamically, but member names too. Let's say we wanted users to be able to store custom value types in their people data, by typing the member name
 						and value into two text inputs? We could get those values like this:</p>
 										
 					<pre><code>
@@ -123,61 +127,85 @@
 					var myDataValue = nameValue.value;
 					person[myDataName] = myDataValue;</code></pre>
 			</section>
-
+			<hr class="my-4">
 			<section class="main-section" id="What_is_this">
-					<header>What is this</header>
-					<p>The <code>this</code> keyword refers to the current object the code is being written inside — so in this case this is equivalent to person. So why not just write person instead? When we start creating constructors, etc., this is very useful
+					<header class="display-4">What is this</header>
+					<br><br>
+					<p class="text-justify">The <code>this</code> keyword refers to the current object the code is being written inside — so in this case this is equivalent to person. So why not just write person instead? When we start creating constructors, etc., this is very useful
 						— it will always ensure that the correct values are used when a member's context changes (e.g. two different person object instances may have different names, but will want to use their own name when saying their greeting).</p>
-					<pre><code>var person1 = {
-				name: 'Chris',
-				greeting: function() {
-				  alert('Hi! I\'m ' + this.name + '.');
-				}
-			  }
-			  
-			  var person2 = {
-				name: 'Brian',
-				greeting: function() {
-				  alert('Hi! I\'m ' + this.name + '.');
-				}
-			  }</code></pre>
-					<p>In this case, person1.greeting() will output "Hi! I'm Chris."; person2.greeting() on the other hand will output "Hi! I'm Brian.", even though the method's code is exactly the same in each case. As we said earlier, this is equal to the object
-						the code is inside — this isn't hugely useful when you are writing out object literals by hand, but it really comes into its own when you are dynamically generating objects (for example using constructors). It will all become clearer later
-						on.
-					</p>
+						
+					<pre><code>
+					var person1 = {
+					name: 'Chris',
+					greeting: function() {
+						alert('Hi! I\'m ' + this.name + '.');
+						}
+					}
+				  
+					var person2 = {
+					name: 'Brian',
+					greeting: function() {
+						alert('Hi! I\'m ' + this.name + '.');
+						}
+					}</code></pre>
+					
+					<p class="text-justify">In this case, person1.greeting() will output "Hi! I'm Chris."; person2.greeting() on the other hand will output "Hi! I'm Brian.", even though the method's code is exactly the same in each case. As we said earlier, this is equal to the object
+					the code is inside — this isn't hugely useful when you are writing out object literals by hand, but it really comes into its own when you are dynamically generating objects (for example using constructors). It will all become clearer later
+					on.</p>
 				</section>
-		
-				<section class="main-section" id="You_ve_been_using_objects_all_along">
-					<header>You ve been using objects all along</header>
-					<p>Every time you are using a built-in browser API or JavaScript object, you are using objects, because such features are built using exactly the same kind of object structures that we've been looking at here, albeit more complex ones than our
-						own basic custom examples. So when you use string methods like:</p>
-					<pre><code>myString.split(',');</code></pre>
-					<p>You are using a method available on an instance of the String class. Every time you create a string in your code, that string is automatically created as an instance of String, and therefore has several common methods/properties available
-						on it.</p>
+				<hr class="my-4">
+				<section class="main-section" id="You_have_been_using_objects_all_along">
+					<header class="display-4">You have been using objects all along</header>
+					<br><br>
+					<p class="text-justify">Every time you are using a built-in browser API or JavaScript object, you are using objects, because such features are built using exactly the same kind of object structures that we've been looking at here, albeit more complex ones than our own basic custom examples. So when you use string methods like:</p>
+						
+					<pre><code>
+					myString.split(',');</code></pre>
+						
+					<p class="text-justify">You are using a method available on an instance of the String class. Every time you create a string in your code, that string is automatically created as an instance of String, and therefore has several common methods/properties available on it.</p>
+					
+					<p class="text-justify">You can add a property to a previously defined object type by using the prototype property. This defines a property that is shared by all objects of the specified type, rather than by just one instance of the object. The following code adds a color property to all objects of type Car, and then assigns a value to the color property of the object car1.</p>
+					
+					<pre><code>
+					Car.prototype.color = null;
+					car1.color = 'black';</code></pre>
+					
+					<p class="text-justify">You can remove a non-inherited property by using the delete operator. The following code shows how to remove a property.</p>
+					
+					<pre><code>
+					// Creates a new object, myobj, with two properties, a and b.
+					var myobj = new Object;
+					myobj.a = 5;
+					myobj.b = 12;
+
+					// Removes the a property, leaving myobj with only the b property.
+					delete myobj.a;
+					console.log ('a' in myobj); // yields "false"</code></pre>
 				</section>
-		
+				<hr class="my-4">
 				<section class="main-section" id="Where_next">
-					<header>Where next</header>
-					<ul>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">Object-oriented JavaScript for beginners</a></li>
-						<li>
+					<header class="display-4">Where next</header>
+					<br><br>
+					<ul class="list-group">
+						<li class="list-group-item"><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">Object-oriented JavaScript for beginners</a></li>
+						<li class="list-group-item">
 							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">Object prototypes</a>
 						</li>
-						<li>
+						<li class="list-group-item">
 							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">Inheritance in JavaScript</a>
 						</li>
-						<li>
+						<li class="list-group-item">
 							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">Working with JSON</a>
 						</li>
-						<li>
+						<li class="list-group-item">
 							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice">Object building practice</a>
 						</li>
 					</ul>
 				</section>
 
 		</main>
-
-		<footer>
+		<br>
+		<footer class="container-fluid card-footer text-muted text-center" id="footer-doc">
 			<address>
 				Materials taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">MDN</a>.
 			</address>
