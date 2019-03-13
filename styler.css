@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Merienda+One');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 #navbar {
     background: rgb(14, 104, 54);
     display: block;
@@ -14,6 +20,7 @@
     padding-right: 5px !important;
     color: white;
     font-weight: bold;
+	font-family: 'Comfortaa', cursive;
 }
 
 #main-doc {
@@ -22,4 +29,70 @@
 
 .main {
     width: 80vw;
+}
+
+#footer-doc {
+	width: 80vw;
+	margin-left: 15rem;
+	border:1px solid;
+}
+
+.navbar-brand {
+	color: white;
+    font-weight: bold;
+	border:2px solid;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-top: 10px;
+	border-radius:5px;
+	font-family: 'Merienda One', cursive;
+}
+
+body {
+	position: relative;
+	overflow-x: hidden;
+}
+
+.display-4 {
+	display: inline-block;
+	font-size: 1.6rem;
+	font-family: 'Bubblegum Sans', cursive;
+	padding: 0.2rem 1.2rem;
+    background-color: rgb(14, 104, 54);
+    color: white;
+}
+
+code {
+	font-family: 'Source Code Pro', monospace;
+}
+
+pre {
+	border-left: 10px solid #358ccb;
+	border-right: 10px solid #358ccb;
+    box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
+    background-color: #fdfdfd;
+    background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+    background-size: 3em 3em;
+    background-origin: content-box;
+    background-attachment: local;
+}
+
+p {
+	font-family: 'PT Sans', sans-serif;
+}
+
+.active {
+	border-left: 1px solid yellow !important;
+	border-right: 1px solid yellow !important;
+}
+
+.nav-link:hover {
+	color:yellow !important;
+}
+
+.navbar-brand:hover {
+	color:yellow !important;
+	border-width: 4px;
 }
