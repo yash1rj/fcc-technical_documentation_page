@@ -9,7 +9,7 @@
     display: block;
     float: left;
     height: 100%;
-    width: 15rem;
+	width: 15rem;
 }
 
 .nav-item {
@@ -33,7 +33,7 @@
 
 #footer-doc {
 	width: 80vw;
-	margin-left: 15rem;
+	margin-left: 15.5rem;
 	border:1px solid;
 }
 
@@ -43,8 +43,8 @@
 	border:2px solid;
 	padding-left:20px;
 	padding-right:20px;
-	padding-top:20px;
-	padding-bottom:20px;
+	padding-top:10px;
+	padding-bottom:10px;
 	margin-top: 10px;
 	border-radius:5px;
 	font-family: 'Merienda One', cursive;
